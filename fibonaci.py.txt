@@ -1,0 +1,23 @@
+xNumbers = int(input("How many Numbers? "))
+
+# first two terms
+x1, x2 = 0, 1
+count = 0
+
+# check if the number of terms is valid
+if xNumbers<= 0:
+   print("Please enter a positive integer")
+elif xNumbers == 1:
+   print("Fibonacci sequence upto",xNumbers,":")
+   print(x1)
+else:
+   print("Fibonacci sequence:")
+   while count < xNumbers:
+       print(x1)
+       xth = x1 + x2
+       # update values
+       x1 = x2
+       x2 = xth
+       count += 1
+
+

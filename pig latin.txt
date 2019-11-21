@@ -1,0 +1,32 @@
+def pigLatin():
+    print ('Welcome to the Pig Latin Translator!')
+    pig = "ay" 
+    original = str(raw_input("Enter a word or phrase to translate to 'Pig Latin':"))
+    original = original.lower() + " " #lowers the case and adds a space to the end for word detection
+    word = "" #place holder for each word we take out
+    new_phrase = "" #holds the translated words to be printed
+    #this will look for words based on the space in between words
+    for l in original:
+        if not l == " ":
+            word = word + l
+        else: #once there is a space we run the translator
+            if len(word) > 0 and word.isalpha(): #checks that there is a good entery
+                first = word[0] #gets the first letter
+                if first in ("aeiou"): #checking to see if it starts with a vowel
+                    new_word = word + pig
+                    new_phrase = new_phrase + " " + new_word # builds the translated phrase
+                    word = "" #resets the word to empty
+                else:
+                    new_word = word[1:] + first + pig #if it doesn't start with a vowel
+                    new_phrase = new_phrase + " " + new_word
+                    word = ""
+            elif not len(word) > 0: # below checks for errors in the word/phrase entered
+                print ("You did not enter any word")
+                pigLatin() #reruns the program
+            elif not word.isalpha():
+                print ("This has a number(s) in it")
+                pigLatin()
+            else:
+                print ("enter word")
+                pigLatin()
+    print (new_phrase[1:]) 

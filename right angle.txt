@@ -1,0 +1,9 @@
+#  Python program to get the third side of right angled triangle from two given sides.
+from math import sqrt
+print("Enter the length of shorter sides:")
+x = int(input("x: "))
+y = int(input("y: "))
+
+c = sqrt(x**2 + y**2)
+print("Hypotenuse length: ", c )
+
